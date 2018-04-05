@@ -1,4 +1,5 @@
-Aanchal Mahajan:
-Aditya Kumar:
+Week 0:
+Aanchal Mahajan:Parsing Technique
+Aditya Kumar:Stack Machine Model
 Mahima Gupta:
-Nishiti Sawant:
+Nishiti Sawant:Deciding the Grammar
