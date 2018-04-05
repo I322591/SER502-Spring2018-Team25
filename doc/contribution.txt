@@ -1,4 +1,7 @@
-Week 0:
+Week 0: (Group- effort)
+  Studying the pre-requisites and discovering the tools to be used.
+  Decided the rules of the Grammar.
+
 Aanchal Mahajan:Parsing Technique
 Aditya Kumar:Stack Machine Model
 Mahima Gupta:
