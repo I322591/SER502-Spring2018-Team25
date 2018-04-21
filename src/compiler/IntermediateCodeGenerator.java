@@ -13,7 +13,23 @@ public class IntermediateCodeGenerator extends GrammarBaseListener {
 	    public void exitProgram(GrammarParser.ProgramContext context) {
 	        intermediateFile.add("terminate");
 	    }
-    
-        
+    /* Overriding the default implementation of exitDeclaration in GrammarBaseListener */
+          @Override
+	    public void exitDeclaration(GrammarParser.DeclarationContext context) {
+	        int lineCount = context.getChildCount();
+
+	        if (lineCount == 3) {
+	            if (context.getChild(1).getText().equals("=")) {
+	                if (symbolTable.containsKey(context.getChild(2).getText())) {
+	                    intermediateFile.add("PUSH " + context.getChild(0).getText() + " "
+	                            + symbolTable.get(context.getChild(2).getText()));
+	                } else {
+	                    intermediateFile.add("PUSH " + context.getChild(0).getText() + " " + context.getChild(2).getText());
+	                }
+	            }
+	        } else {
+	            System.out.println("ERROR: This assignment is not supported by our grammar.");
+	        }
+	    }
 
 }
