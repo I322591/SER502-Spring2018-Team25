@@ -13,8 +13,9 @@ public class IntermediateCodeGenerator extends GrammarBaseListener {
 	    public void exitProgram(GrammarParser.ProgramContext context) {
 	        intermediateFile.add("terminate");
 	    }
-    /* Overriding the default implementation of exitDeclaration in GrammarBaseListener */
-          @Override
+    
+        /* Overriding the default implementation of exitDeclaration in GrammarBaseListener */
+        @Override
 	    public void exitDeclaration(GrammarParser.DeclarationContext context) {
 	        int lineCount = context.getChildCount();
 
@@ -31,5 +32,8 @@ public class IntermediateCodeGenerator extends GrammarBaseListener {
 	            System.out.println("ERROR: This assignment is not supported by our grammar.");
 	        }
 	    }
+    
+        /* TO DO - Written the code for check-then and until but realised that need to tweak our grammar a little to have a 
+         cleaner code
 
 }
