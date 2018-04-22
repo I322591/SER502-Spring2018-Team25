@@ -36,11 +36,11 @@ public class IntermediateCodeGenerator extends RochGrammarBaseListener {
         StringBuilder checkStatement = new StringBuilder();
         String operator = context.getChild(1).getChild(1).getText();
         intermediateFile.add("BOOL value");
-        checkStatement.append(OperatorRetriever.getOperator(operator));
+        checkStatement.append(OperatorRetriever.retrieveOperator(operator));
         checkStatement.append(" value ");
-        String leftVar = context.getChild(1).getChild(0).getText()
+        String leftVar = context.getChild(1).getChild(0).getText();
         checkStatement.append(leftVar).append(" ");
-        String rightVar = context.getChild(1).getChild(0).getText()
+        String rightVar = context.getChild(1).getChild(0).getText();
         checkStatement.append(rightVar);
         intermediateFile.add(checkStatement.toString());
         checkStatement.setLength(0);
