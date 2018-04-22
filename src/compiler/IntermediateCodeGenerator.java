@@ -81,4 +81,23 @@ public class IntermediateCodeGenerator extends RochGrammarBaseListener {
 				}
 			}
 		}
+
+        /*Overriding the default implementation of exitDisplay  */
+        @Override
+        public void exitDisplay(RochGrammarParser.DisplayContext ctx) {
+            String displayString = "display(";
+            if (ctx.getChildCount() == 3) {
+                if (ctx.getChild(0).getText().equals("display(") && ctx.getChild(2).getText().equals(")")) {
+                    if (symbolTable.containsKey(ctx.getChild(1).getText())) {
+                        intermediateFile.add("PRINT" + " " + symbolTable.get(ctx.getChild(1).getText()));
+                    } else {
+                        intermediateFile.add("PRINT" + " " + ctx.getChild(1).getText());
+                    }
+                } else {
+                    System.out.println("ERROR: Syntax Error");
+                }
+            } else {
+                System.out.println("ERROR: Syntax Error");
+            }
+        }
 }
