@@ -45,11 +45,26 @@ public class IntermediateCodeGenerator extends RochGrammarBaseListener {
         intermediateFile.add(checkStatement.toString());
         checkStatement.setLength(0);
         checkStatement.append("CHECK ").append("value");
-        intermediateFile.add(statement.toString());
+        intermediateFile.add(checkStatement.toString());
     }
 
-    
-        /* TO DO - Written the code for check-then and until but realised that need to tweak our grammar a little to have a 
-         cleaner code  */
+        /* Overriding the default implementation of exitCheckCondition in GrammarBaseListener */
+        @Override
+        public void exitCheck(RochGrammarParser.CheckContext context) {
+            intermediateFile.add("CHECKEND");
+        }
+
+        /* Overriding the default implementation of enterOtherwise in GrammarBaseListener */
+        @Override
+        public void enterOtherwise(RochGrammarParser.OtherwiseContext context) {
+            intermediateFile.add("OTHERWISE");
+        }
+       
+        /* Overriding the default implementation of exitOtherwise in GrammarBaseListener */
+        @Override
+        public void exitOtherwise(RochGrammarParser.OtherwiseContext context) {
+            intermediateFile.add("OTHERWISEEND");
+        }
+       
 
 }
