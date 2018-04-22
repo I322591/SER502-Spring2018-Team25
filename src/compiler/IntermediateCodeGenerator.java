@@ -65,6 +65,20 @@ public class IntermediateCodeGenerator extends RochGrammarBaseListener {
         public void exitOtherwise(RochGrammarParser.OtherwiseContext context) {
             intermediateFile.add("OTHERWISEEND");
         }
-       
 
+        /* Overriding the default implementation of enterVariableDeclaration  */
+		@Override
+		public void enterVariableDeclaration(RochGrammarParser.VariableDeclarationContext ctx) {
+			String booleanType = "bool";
+			String numberType= "num";
+			if (ctx.getChildCount() == 2) {
+				if (ctx.getChild(0).getText().compareToIgnoreCase(booleanType) == 0) {
+					intermediateFile.add("BOOL " + ctx.getChild(1).getText());
+				}else if (ctx.getChild(0).getText().compareToIgnoreCase(numberType) == 0) {
+					intermediateFile.add("NUM " + ctx.getChild(1).getText());
+				}else {
+					System.out.println("ERROR: Variable Declaration is invalid");
+				}
+			}
+		}
 }
