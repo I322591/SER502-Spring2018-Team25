@@ -3,20 +3,20 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-public class IntermediateCodeGenerator extends GrammarBaseListener {
+public class IntermediateCodeGenerator extends RochGrammarBaseListener {
 	 	int count = 0;
 	    private LinkedHashMap<String, String> symbolTable = new LinkedHashMap<String, String>();
 	    public static List<String> intermediateFile = new ArrayList<String>();	   
 	   
         /* Overriding the default implementation of exitProgram in GrammarBaseListener */
-	    @Override 
-	    public void exitProgram(GrammarParser.ProgramContext context) {
+	    @Override
+		public void exitGrammarstart(RochGrammarParser.GrammarstartContext context) {
 	        intermediateFile.add("terminate");
 	    }
     
         /* Overriding the default implementation of exitDeclaration in GrammarBaseListener */
         @Override
-	    public void exitDeclaration(GrammarParser.DeclarationContext context) {
+		public void exitVariableDeclaration(RochGrammarParser.VariableDeclarationContext context) {
 	        int lineCount = context.getChildCount();
 
 	        if (lineCount == 3) {
