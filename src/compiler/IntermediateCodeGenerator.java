@@ -46,7 +46,7 @@ public class IntermediateCodeGenerator extends RochGrammarBaseListener {
         checkStatement.append(rightVar);
         intermediateFile.add(checkStatement.toString());
         checkStatement.setLength(0);
-        checkStatement. (context.getChild(0).getText().toUpperCase()).append(" ").append("value");
+        checkStatement.append(context.getChild(0).getText().toUpperCase()).append(" ").append("value");
         intermediateFile.add(checkStatement.toString());
     }
 
@@ -93,7 +93,7 @@ public class IntermediateCodeGenerator extends RochGrammarBaseListener {
         String operator = context.getChild(1).getChild(1).getText();
         untilLoop.append(OperatorRetriever.retrieveOperator(operator));
         untilLoop.append(" value ");
-        tring leftVar = context.getChild(1).getChild(0).getText();
+        String leftVar = context.getChild(1).getChild(0).getText();
         untilLoop.append(leftVar).append(" ");
         String rightVar = context.getChild(1).getChild(0).getText();
         untilLoop.append(rightVar);
@@ -122,7 +122,7 @@ public class IntermediateCodeGenerator extends RochGrammarBaseListener {
     public void exitDisplay(RochGrammarParser.DisplayContext ctx) {
         String displayString = "display(";
         if (ctx.getChildCount() == 3) {
-            if (ctx.getChild(0).getText().equals("display(") && ctx.getChild(2).getText().equals(")")) {
+            if (ctx.getChild(0).getText().equals(displayString) && ctx.getChild(2).getText().equals(")")) {
                 if (symbolTable.containsKey(ctx.getChild(1).getText())) {
                     intermediateFile.add("PRINT" + " " + symbolTable.get(ctx.getChild(1).getText()));
                 } else {
@@ -161,7 +161,7 @@ public class IntermediateCodeGenerator extends RochGrammarBaseListener {
                     string.append("load" + accumulator).append(" ").append(ctx.getChild(0).getText());
                     string.append(" ").append(ctx.getChild(2).getText());
                 }
-                intermediateFile.add(statement.toString());
+                intermediateFile.add(string.toString());
                 string.setLength(0);
                 string.append(ctx.getChild(0).getText()).append(ctx.getChild(1).getText());
                 string.append(ctx.getChild(2).getText());
