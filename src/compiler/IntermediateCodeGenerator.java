@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 public class IntermediateCodeGenerator extends RochGrammarBaseListener {
-    int count = 0;
+   
     private LinkedHashMap<String, String> symbolTable = new LinkedHashMap<String, String>();
     public static List<String> intermediateFile = new ArrayList<String>();
-    int accumulator;
+    int accumulator=0;
 
     /* Overriding the default implementation of exitProgram in GrammarBaseListener */
     @Override
