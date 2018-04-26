@@ -16,7 +16,7 @@ public class IntermediateCodeGenerator extends RochGrammarBaseListener {
 
     /* Overriding the default implementation of exitDeclaration in GrammarBaseListener */
     @Override
-    public void exitVariableDeclaration(RochGrammarParser.VariableDeclarationContext context) {
+    public void exitAssignment(RochGrammarParser.AssignmentContext context) {
         int lineCount = context.getChildCount();
         if (lineCount == 3) {
             if (context.getChild(1).getText().equals("=")) {
@@ -44,15 +44,15 @@ public class IntermediateCodeGenerator extends RochGrammarBaseListener {
         checkStatement.append(rightVar);
         intermediateFile.add(checkStatement.toString());
         checkStatement.setLength(0);
-        checkStatement.append("CHECK ").append("value");
+        checkStatement.(context.getChild(0).getText().toUpperCase()).append(" ").append("value");
         intermediateFile.add(checkStatement.toString());
     }
 
-        /* Overriding the default implementation of exitCheckCondition in GrammarBaseListener */
-        @Override
-        public void exitCheck(RochGrammarParser.CheckContext context) {
-            intermediateFile.add("CHECKEND");
-        }
+    /* Overriding the default implementation of exitCheckCondition in GrammarBaseListener */
+    @Override
+    public void exitCheck(RochGrammarParser.CheckContext context) {
+        intermediateFile.add("CHECKEND");
+    }
 
         /* Overriding the default implementation of enterOtherwise in GrammarBaseListener */
         @Override
@@ -65,6 +65,39 @@ public class IntermediateCodeGenerator extends RochGrammarBaseListener {
         public void exitOtherwise(RochGrammarParser.OtherwiseContext context) {
             intermediateFile.add("OTHERWISEEND");
         }
+
+        /*Overriding the default implementation of enterUntil*/
+        @Override
+        public void enterUntil(RochGrammarParser.UntilContext context) {
+            StringBuilder untilLoop = new StringBuilder();
+            String operator = context.getChild(1).getChild(1).getText();
+            untilLoop.append(OperatorRetriever.retrieveOperator(operator));
+            intermediateFile.add("BOOL value");
+            untilLoop.append(" value ");
+            String leftVar = context.getChild(1).getChild(0).getText();
+            untilLoop.append(leftVar).append(" ");
+            String rightVar = context.getChild(1).getChild(0).getText();
+            untilLoop.append(rightVar);
+            intermediateFile.add(untilLoop.toString());
+            untilLoop.setLength(0);
+            untilLoop.append(context.getChild(0).getText().toUpperCase()).append(" ").append("value");
+            intermediateFile.add(untilLoop.toString());
+        }
+
+    /*Overriding the default implementation of exitUntilLoop*/
+    @Override
+    public void exitUntilLoop(RochGrammarParser.UntilLoopContext context) {
+        StringBuilder untilLoop = new StringBuilder();
+        String operator = context.getChild(1).getChild(1).getText();
+        untilLoop.append(OperatorRetriever.retrieveOperator(operator));
+        untilLoop.append(" value ");
+        tring leftVar = context.getChild(1).getChild(0).getText();
+        untilLoop.append(leftVar).append(" ");
+        String rightVar = context.getChild(1).getChild(0).getText();
+        untilLoop.append(rightVar);
+        intermediateFile.add(untilLoop.toString());
+        intermediateFile.add("UNTILEND");
+    }
 
         /* Overriding the default implementation of enterVariableDeclaration  */
 		@Override
