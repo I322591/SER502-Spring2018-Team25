@@ -1,0 +1,9 @@
+NUM a
+PUSH a 4
+NUM b
+PUSH b 5
+NUM c
+NUM load1
+ADD load1 a bdisplayc
+PUSH c load1
+terminate

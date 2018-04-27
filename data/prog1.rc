@@ -1,0 +1,9 @@
+start
+num a
+a = 4
+num b
+b = 5
+num c
+c = a+b
+display c
+terminate
