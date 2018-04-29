@@ -50,5 +50,16 @@ public class RunROCH {
         }
     }
     
-    /* TO DO - List function to get the tokens
+    public static List<String> getTokens(String str) {
+        List<String> tokens = new ArrayList<String>();
+        String regex = "\"([^\"]*)\"|(\\S+)";
+        Matcher m = Pattern.compile(regex).matcher(str);
+        while (m.find()) {
+            if (m.group(1) != null)
+                tokens.add(m.group(1));
+            else
+                tokens.add(m.group(2));
+        }
+        return tokens;
+    }
 }
