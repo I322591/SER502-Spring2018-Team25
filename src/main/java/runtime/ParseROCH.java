@@ -9,67 +9,48 @@ public class ParseROCH {
 
 		switch (tokenList.get(0)) {
 
-		case "NUM":
-			ExecuteROCH.declareNumber(tokenList);
+		case "NUM" :		ExecuteROCH.declareNumber(tokenList);
 			break;
-		case "BOOL":
-			ExecuteROCH.declareBool(tokenList);
+		case "BOOL" : 		ExecuteROCH.declareBool(tokenList);
 			break;
-		case "PRINT":
-			ExecuteROCH.outStatement(tokenList);
+		case "PRINT" : 		ExecuteROCH.outStatement(tokenList);
 			break;
-		case "PUSH":
-			ExecuteROCH.updateValue(Arrays.asList(tokenList.get(1), tokenList.get(2)));
+		case "PUSH" : 		ExecuteROCH.updateValue(Arrays.asList(tokenList.get(1), tokenList.get(2)));
 			break;
-		case "TERMINATE":
-			ExecuteROCH.popSymbolTable("EOF");
+		case "TERMINATE" : 		ExecuteROCH.popSymbolTable("EOF");
 			break;
-		case "ADD":
-			ExecuteROCH.algebraicOperators(tokenList);
+		case "ADD" : 		ExecuteROCH.algebraicOperators(tokenList);
 			break;
-		case "SUB":
-			ExecuteROCH.algebraicOperators(tokenList);
+		case "SUB" : 		ExecuteROCH.algebraicOperators(tokenList);
 			break;
-		case "MUL":
-			ExecuteROCH.algebraicOperators(tokenList);
+		case "MUL" : 		ExecuteROCH.algebraicOperators(tokenList);
 			break;
-		case "DIV":
-			ExecuteROCH.algebraicOperators(tokenList);
+		case "DIV" : 		ExecuteROCH.algebraicOperators(tokenList);
 			break;
-		case "GT":
-			ExecuteROCH.relationalOperation(tokenList);
+		case "GT" : 		ExecuteROCH.relationalOperation(tokenList);
 			break;
-		case "GE":
-			ExecuteROCH.relationalOperation(tokenList);
+		case "GE" : 		ExecuteROCH.relationalOperation(tokenList);
 			break;
-		case "LT":
-			ExecuteROCH.relationalOperation(tokenList);
+		case "LT" : 		ExecuteROCH.relationalOperation(tokenList);
 			break;
-		case "LE":
-			ExecuteROCH.relationalOperation(tokenList);
+		case "LE" : 		ExecuteROCH.relationalOperation(tokenList);
 			break;
-		case "UNTIL":
-			ExecuteROCH.untilCondition(tokenList);
+		case "UNTIL" : 		ExecuteROCH.WhileCondition(tokenList);
+		 	break;						
+		case "UNTILEND" : 	ExecuteROCH.WhileEndCondition(tokenList);
+							ExecuteROCH.popSymbolTable("UNTIL");
+		 	break;						
+		case "CHECK" : 		ExecuteROCH.IfCondition(tokenList);
 			break;
-		case "UNTILEND":
-			ExecuteROCH.untilEndCondition(tokenList);
-			ExecuteROCH.popSymbolTable("UNTIL");
+		case "OTHERWISE" : 		ExecuteROCH.ElseCondition(tokenList);
 			break;
-		case "CHECK":
-			ExecuteROCH.checkCondition(tokenList);
-			break;
-		case "OTHERWISE":
-			ExecuteROCH.otherWiseCondition(tokenList);
-			break;
-		case "CHECKEND":
-			ExecuteROCH.checkEndCondition();
-			ExecuteROCH.popSymbolTable("CHECK");
+		case "CHECKEND" : 		ExecuteROCH.EndIfCondition();
+					 		ExecuteROCH.popSymbolTable("CHECK");
 			break;
 		case "OTHERWISEEND":
-			ExecuteROCH.popSymbolTable("OTHERWISE");
+					 		ExecuteROCH.popSymbolTable("OTHERWISE");
 			break;
-		default:
-			break;
+		default : break;
 		}
 	}
 }
