@@ -5,9 +5,9 @@ We are using maven to build our project.
 Navigate to the directory which contains the pom.xml
 
 Execute the command 
-             \mvn clean
+             **\mvn clean**
 Then execute command 
-             \mvn package
+             **\mvn package**
 
 # Execution of the JAR File
 The jar file # SER502_Team25.jar is present in the data directory
