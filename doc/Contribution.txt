@@ -1,0 +1,31 @@
+Week 0: (Group effort)
+  Studying the pre-requisites and discovering the tools to be used.
+  Decided the rules of the Grammar.
+
+Week 1:
+  Aanchal Mahajan: Parsing Technique
+  Aditya Kumar: Stack Machine Model
+  Mahima Gupta: Proposed Design
+  Nishiti Sawant: Created the Grammar along with the assistance from the other members
+
+1. Nishiti Sawant 
+    a) Creating OperatorRetreiver function to generate the intermediate code for arithmetic expressions
+    b) Creating intermediate code for check-otherwise and Until
+    c) Creating the file to add and the update symbol Map and perform operations in runtime
+    
+2. Aditya Kumar
+    a) Creating the intermediate code for variable Declaration and print statement
+    b) Creating the intermediate code for evaluating the Arithmetic Expression
+    c) File for reading the input file line-by-line and parsing the tokens
+
+3. Aanchal Mahajan
+    a) Creating the parser and lexer files using ANTLR
+    b) Creating Maven Project
+    c) Getter and setters for symbol table
+    d) Retreiving the tokens for running the RunROCH.java
+
+4. Mahima Gupta
+    a) Creating the intermediate code for exit check-otherwise and until conditions and assignment declaration
+    b) Parsing the tokens using parseROCH.java 
+    c) Creating the main class
+    d) Creating JAR file and sample source code 
