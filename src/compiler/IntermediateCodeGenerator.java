@@ -12,7 +12,7 @@ public class IntermediateCodeGenerator extends RochGrammarBaseListener {
     /* Overriding the default implementation of exitProgram in GrammarBaseListener */
     @Override
     public void exitGrammarstart(RochGrammarParser.GrammarstartContext context) {
-        intermediateFile.add("terminate");
+        intermediateFile.add("TERMINATE");
     }
 
     /* Overriding the default implementation of exitDeclaration in GrammarBaseListener */
@@ -42,7 +42,7 @@ public class IntermediateCodeGenerator extends RochGrammarBaseListener {
         checkStatement.append(" value ");
         String leftVar = context.getChild(1).getChild(0).getText();
         checkStatement.append(leftVar).append(" ");
-        String rightVar = context.getChild(1).getChild(0).getText();
+        String rightVar = context.getChild(1).getChild(2).getText();
         checkStatement.append(rightVar);
         intermediateFile.add(checkStatement.toString());
         checkStatement.setLength(0);
@@ -78,7 +78,7 @@ public class IntermediateCodeGenerator extends RochGrammarBaseListener {
         untilLoop.append(" value ");
         String leftVar = context.getChild(1).getChild(0).getText();
         untilLoop.append(leftVar).append(" ");
-        String rightVar = context.getChild(1).getChild(0).getText();
+        String rightVar = context.getChild(1).getChild(2).getText();
         untilLoop.append(rightVar);
         intermediateFile.add(untilLoop.toString());
         untilLoop.setLength(0);
@@ -90,12 +90,12 @@ public class IntermediateCodeGenerator extends RochGrammarBaseListener {
     @Override
     public void exitUntilLoop(RochGrammarParser.UntilLoopContext context) {
         StringBuilder untilLoop = new StringBuilder();
-        String operator = context.getChild(1).getChild(1).getText();
+        String operator = context.getChild(0).getChild(1).getChild(1).getText();
         untilLoop.append(OperatorRetriever.retrieveOperator(operator));
         untilLoop.append(" value ");
-        String leftVar = context.getChild(1).getChild(0).getText();
+        String leftVar = context.getChild(0).getChild(1).getChild(0).getChild(0).getText();
         untilLoop.append(leftVar).append(" ");
-        String rightVar = context.getChild(1).getChild(0).getText();
+        String rightVar = context.getChild(0).getChild(1).getChild(2).getChild(0).getText();
         untilLoop.append(rightVar);
         intermediateFile.add(untilLoop.toString());
         intermediateFile.add("UNTILEND");

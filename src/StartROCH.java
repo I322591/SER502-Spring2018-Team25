@@ -1,5 +1,3 @@
-
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,7 +13,7 @@ import compiler.IntermediateCodeGenerator;
 import compiler.RochGrammarLexer;
 import compiler.RochGrammarParser;
 
-//import runtime.Runtime;
+import runtime.Runtime;
 
 public class StartROCH {
 
@@ -49,7 +47,7 @@ public class StartROCH {
 
             createFile(filename);
 
-           // Runtime.run(filename);
+            Runtime.run(filename);
 
         } catch (Exception e) {
 
