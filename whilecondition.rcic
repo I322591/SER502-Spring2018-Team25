@@ -1,0 +1,14 @@
+NUM a
+PUSH a 10
+NUM b
+PUSH b 5
+BOOL value
+GT value a b
+UNTIL value
+PRINT a
+NUM load1
+SUB load1 a 1
+PUSH a load1
+GT value a b
+UNTILEND
+TERMINATE

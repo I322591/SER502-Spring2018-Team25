@@ -1,0 +1,16 @@
+NUM d
+PUSH d 1
+PRINT d
+NUM e
+PUSH e 2
+PRINT e
+NUM r
+NUM load1
+MUL load1 d e
+ADD load1 4 load1
+NUM load2
+DIV load2 4 2
+SUB load2 load1 load2
+PUSH r load2
+PRINT r
+TERMINATE
