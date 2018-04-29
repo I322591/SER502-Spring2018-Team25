@@ -1,5 +1,4 @@
-# SER502-Spring2018-Team25
-# Programming Language ROCH
+# SER502-Spring2018-Team25: Programming Language ROCH
 
 # To build the project
 We are using maven to build our project.
