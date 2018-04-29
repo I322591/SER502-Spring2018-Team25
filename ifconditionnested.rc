@@ -1,0 +1,15 @@
+start
+num a
+a = 10
+num b
+b = 5
+num c
+c = 2
+check a>b
+display(a)
+check b>c
+display(b) 
+otherwise
+display(b)
+checkEnd
+terminate
