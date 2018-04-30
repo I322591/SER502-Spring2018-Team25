@@ -15,3 +15,13 @@ Navigate to the data directory, which contains the sample programs
 
 Run command 
            \java -jar SER502_Team25.jar <name_of_the_sample_program>
+           
+# Additional functionalities
+
+• Display statement to print the output on screen
+• Universal variable declaration i.e. the variable can be declared
+anywhere is the program.
+• The nested conditional and iterative operation.
+• Relational operators were implemented.
+• Variable declaration without definition and consecutive variable
+declaration and definition for ease of use.
