@@ -6,9 +6,9 @@ Windows
 
 # Tools used
 
-Lexical Analysis and Parsing is done using Antlr 4.7
-Intermediate code generation is done using Antlr and JAVA
-Runtime Environment is in Java 1.8
+- Lexical Analysis and Parsing is done using Antlr 4.7
+- Intermediate code generation is done using Antlr and JAVA
+- Runtime Environment is in Java 1.8
 
 # Link to the YouTube video
 
