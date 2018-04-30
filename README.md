@@ -1,5 +1,19 @@
 # SER502-Spring2018-Team25: Programming Language ROCH
 
+# System on which your compiler and runtime are built
+
+Windows
+
+# Tools used
+
+Lexical Analysis and Parsing is done using Antlr 4.7
+Intermediate code generation is done using Antlr and JAVA
+Runtime Environment is in Java 1.8
+
+# Link to the YouTube video
+
+https://youtu.be/xjS6flcuo9s
+
 # To build the project
 We are using maven to build our project.
 Navigate to the directory which contains the pom.xml
